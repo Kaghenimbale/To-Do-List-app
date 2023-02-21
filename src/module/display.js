@@ -25,6 +25,24 @@ const renderToDo = () => {
       index: 2,
     },
   ];
+
+  listItems.innerHTML = '';
+  newData.forEach((item) => {
+    const li = document.createElement('li');
+    li.className = 'Item';
+
+    const listItem = `
+    <div class="description">
+    <span class="material-symbols-outlined">check_box_outline_blank</span>
+    <h2>${item.description}</h2>
+    </div>
+    <button class="btn-dot"><span class="material-symbols-outlined">more_vert</span></button>
+    `;
+
+    li.innerHTML = listItem;
+
+    listItems.appendChild(li);
+  });
 };
 
 export default renderToDo;

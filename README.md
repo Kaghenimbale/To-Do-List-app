@@ -43,9 +43,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Undestand how I can build a website plain JavaScript with objects]**
-- **[Undestand how I can refactor a website to use JavaScript classes]**
-- **[Complete website with navigation]**
+- **[Use webpack to bundle JavaScript.]**
+- **[Learn how to use proper ES6 syntax.]**
+- **[Use ES6 modules to write modular JavaScript.]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,7 +75,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
   - cd my-folder
-  - git clone [here](https://github.com/Kaghenimbale/Awesome-book.git)
+  - git clone [here](https://github.com/Kaghenimbale/To-Do-List-app.git)
 
 ### Install
 
@@ -114,9 +114,6 @@ This project has not been deployed
 - Twitter: [@twitterhandle](https://twitter.com/MbaleKagheni)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/kagheni-mbale-401b90240/)
 
-👤 **Ernest Musong**
-
-- GitHub: [@githubhandle](https://github.com/ernestmusong)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -124,8 +121,8 @@ This project has not been deployed
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Styling of the website]**
-- [ ] **[Add more logic]**
+- [ ] **[Implement this logic to my dashboard projet]**
+- [ ] **[Add more functionality to this App]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -159,7 +156,7 @@ Thank you Microverse and my friend who always explain me for preparing this proj
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Kaghenimbale/Awesome-book/blob/main/Licence)) licensed.
+This project is [MIT](https://github.com/Kaghenimbale/To-Do-List-app/blob/master/Licence)) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

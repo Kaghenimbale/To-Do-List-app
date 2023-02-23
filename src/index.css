@@ -5,3 +5,125 @@
   overflow-x: hidden;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: lightgrey;
+}
+
+.containers {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 70vw;
+  background-color: white;
+  box-shadow: 0 0 3px black;
+}
+
+.clear {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  background: rgba(232, 232, 232, 0.845);
+  width: 100%;
+}
+
+.clear button {
+  font-size: 1.2rem;
+  border: none;
+  color: black;
+  background: rgba(232, 232, 232, 0.845);
+}
+
+.text {
+  width: 70vw;
+  height: 30px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 1px black;
+}
+
+#input-list {
+  padding: 1rem 1.5rem;
+  font-size: 1.3rem;
+  width: 60vw;
+  color: black;
+  border: none;
+}
+
+h2 {
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+
+span {
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+
+#form {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+}
+
+#btn-submit {
+  display: flex;
+  width: 5vw;
+  font-size: 1rem;
+  border: white;
+  background-color: white;
+}
+
+#btn-submit span {
+  font-size: 1.1rem;
+  color: darkgray;
+}
+
+#input-list::placeholder {
+  color: rgb(100, 98, 98);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+#list-items {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+}
+
+.btn-dot {
+  background-color: white;
+  border: none;
+}
+
+.btn-dot:hover {
+  cursor: all-scroll;
+}
+
+.description {
+  display: flex;
+}

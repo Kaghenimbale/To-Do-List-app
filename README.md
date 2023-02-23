@@ -24,7 +24,7 @@
 
 # 📖 [To_Do_List] <a name="about-project"></a>
 
-**[To_Do_List]** "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. You will build a simple website that allows for doing that, and you will do it using ES6 and Webpack!
+**[To_Do_List]** To-do list is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. You will build a simple website that allows for doing that, and you will do it using ES6 and Webpack!
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -43,9 +43,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Undestand how I can build a website plain JavaScript with objects]**
-- **[Undestand how I can refactor a website to use JavaScript classes]**
-- **[Complete website with navigation]**
+- **[Use webpack to bundle JavaScript.]**
+- **[Learn how to use proper ES6 syntax.]**
+- **[Use ES6 modules to write modular JavaScript.]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,28 +75,44 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
   - cd my-folder
-  - git clone [here](https://github.com/Kaghenimbale/Awesome-book.git)
+  - git clone [here](https://github.com/Kaghenimbale/To-Do-List-app.git)
 
 ### Install
 
 Install this project with:
 
-  - cd my-project
+Install Node Modules
+  
+  - npm install
+
 
 ### Usage
 
 To run the project, execute the following command:
 
-  - cd my-project
-  - Open the index.html in the browser
+Start the development server
+
+  - npm start
 
 ### Run tests
 
+To run the project, execute the following command:
+
+  - npm install
+  - to install all the dependencies used in the project
+
+  - npm run build
+  - to build this project from the source folder using webpack
+
+  - npm run start
+  - in order to start a server and deploy the project localy
+  
 To run tests, run the following command:
 
   - cd my-project
   - npx hint .
   - npx stylelint "**/*.{css,scss}"
+
 
 ### Deployment
 
@@ -114,9 +130,6 @@ This project has not been deployed
 - Twitter: [@twitterhandle](https://twitter.com/MbaleKagheni)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/kagheni-mbale-401b90240/)
 
-👤 **Ernest Musong**
-
-- GitHub: [@githubhandle](https://github.com/ernestmusong)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -124,8 +137,8 @@ This project has not been deployed
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Styling of the website]**
-- [ ] **[Add more logic]**
+- [ ] **[Implement this logic to my dashboard projet]**
+- [ ] **[Add more functionality to this App]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -159,7 +172,7 @@ Thank you Microverse and my friend who always explain me for preparing this proj
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Kaghenimbale/Awesome-book/blob/main/Licence)) licensed.
+This project is [MIT](https://github.com/Kaghenimbale/To-Do-List-app/blob/master/Licence)) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

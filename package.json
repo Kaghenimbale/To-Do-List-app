@@ -9,16 +9,6 @@
     "start": "webpack serve --open",
     "build": "webpack"
   },
-  "env": {
-    "node": true,
-    "webpack": true
-  },
-  "plugins": [
-    "import"
-  ],
-  "rules": {
-    "import/no-unresolved": ["error", { "commonjs": true, "caseSensitive": true }]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kaghenimbale/To-Do-List-app.git"
@@ -38,8 +28,8 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
   },
-  "dependencies": {
-    "html-webpack-plugin": "^5.5.0",
-    "lodash": "^4.17.21"
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
   }
+  
 }

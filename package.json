@@ -19,6 +19,16 @@
   "bugs": {
     "url": "https://github.com/Kaghenimbale/To-Do-List-app/issues"
   },
+  "env": {
+    "node": true,
+    "webpack": true
+  },
+  "plugins": [
+    "import"
+  ],
+  "rules": {
+    "import/no-unresolved": ["error", { "commonjs": true, "caseSensitive": true }]
+  },
   "homepage": "https://github.com/Kaghenimbale/To-Do-List-app#readme",
   "devDependencies": {
     "babel-eslint": "^10.1.0",

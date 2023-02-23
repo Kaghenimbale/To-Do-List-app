@@ -81,22 +81,38 @@ Clone this repository to your desired folder:
 
 Install this project with:
 
-  - cd my-project
+Install Node Modules
+  
+  - npm install
+
 
 ### Usage
 
 To run the project, execute the following command:
 
-  - cd my-project
-  - Open the index.html in the browser
+Start the development server
+
+  - npm start
 
 ### Run tests
 
+To run the project, execute the following command:
+
+  - npm install
+  - to install all the dependencies used in the project
+
+  - npm run build
+  - to build this project from the source folder using webpack
+
+  - npm run start
+  - in order to start a server and deploy the project localy
+  
 To run tests, run the following command:
 
   - cd my-project
   - npx hint .
   - npx stylelint "**/*.{css,scss}"
+
 
 ### Deployment
 

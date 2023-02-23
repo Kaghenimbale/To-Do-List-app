@@ -22,12 +22,12 @@ const renderToDo = () => {
     {
       description: 'Travel',
       completed: false,
-      index: 2,
+      index: 3,
     },
   ];
 
   listItems.innerHTML = '';
-  newData.forEach((item) => {
+  newData.sort((a, b) => a.index - b.index).forEach((item) => {
     const li = document.createElement('li');
     li.className = 'Item';
 

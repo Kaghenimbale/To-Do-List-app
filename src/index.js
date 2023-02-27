@@ -9,6 +9,39 @@ class Task {
     this.newData = newData;
   }
 
+  delete() {
+    const btns = document.querySelectorAll('#delete');
+    const clearSelected = document.querySelector('.clear');
+
+    btns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const newdata = [...newData];
+        const { id } = e.target.parentElement.dataset;
+        const indexItem = newdata.findIndex((item) => item.index === +id);
+
+        if (indexItem > -1) {
+          newdata.splice(indexItem, 1);
+
+          newdata.forEach((item, indexItem) => {
+            item.index = indexItem;
+          });
+
+          localStorage.setItem('data', JSON.stringify(newdata));
+          this.read();
+        }
+      });
+    });
+    clearSelected.addEventListener('click', () => {
+      const newdata = this.newData.filter((data) => !data.completed);
+
+      newData.forEach((item, indexItem) => {
+        item.index = indexItem;
+      });
+      localStorage.setItem('data', JSON.stringify(newdata));
+      this.read();
+    });
+  }
+
   update() {
     const btnitems = document.querySelectorAll('#dot');
     const Input = document.createElement('input');

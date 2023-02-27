@@ -1,20 +1,21 @@
-import { UI } from './display.js'
-export const renderDomContentDb = () => {
-    const newData = JSON.parse(localStorage.getItem('data') || '[]');
+// import { UI } from './storeData.js'
+// export const renderDomContentDb = () => {
+//     const newData = JSON.parse(localStorage.getItem('data') || '[]');
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const InputValue = document.querySelector('#input-list').value;
-        
-      const dataObj = {
-        description: InputValue,
-        completed: false,
-        index: newData.length,
-      };
+//     form.addEventListener('submit', (e) => {
+//       e.preventDefault();
+//       const InputValue = document.querySelector('#input-list').value;
 
-      const userINterface = new UI(dataObj);
-      userINterface.add();
-  
-      form.reset();
-    });
-}
+//       const dataObj = {
+//         description: InputValue,
+//         completed: false,
+//         index: newData.length,
+//       };
+
+//       const userINterface = new UI(newData);
+//       userINterface.pushData(dataObj);
+//       userINterface.readData();
+
+//       form.reset();
+//     });
+// }

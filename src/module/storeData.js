@@ -3,9 +3,14 @@
 //     this.newData = Data;
 //   }
 
-//   add () {
+//   pushData (dataObj) {
+//     this.newData.push(dataObj);
+//     localStorage.setItem('data', JSON.stringify(this.newData));
+//   }
+
+//   readData() {
 //     const newData = JSON.parse(localStorage.getItem('data') || '[]');
-//     newData.push(newData);
 //     console.log(newData);
+//     this.pushData()
 //   }
 // }

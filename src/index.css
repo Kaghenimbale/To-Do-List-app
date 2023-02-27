@@ -122,7 +122,7 @@ span {
 }
 
 .hidden {
-  display: none; 
+  display: none;
 }
 
 .btn-dot:hover {
@@ -135,7 +135,7 @@ span {
 
 .InputUpdate {
   font-size: 1.2rem;
-  border: none;
+  border: 0.2px solid black;
   background: transparent;
   padding: 1rem;
   width: 70vw;
@@ -146,10 +146,7 @@ span {
   display: none;
   align-items: center;
   width: 70vw;
-}
-
-.Item:hover {
-  background: rgba(255, 247, 0, 0.509);
+  justify-content: center;
 }
 
 .btn-color {

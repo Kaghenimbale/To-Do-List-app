@@ -1,22 +1,20 @@
-import renderToDo from './display.js';
+import { UI } from './display.js'
+export const renderDomContentDb = () => {
+    const newData = JSON.parse(localStorage.getItem('data') || '[]');
 
-const form = document.getElementById('form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const InputValue = document.querySelector('#input-list').value;
+        
+      const dataObj = {
+        description: InputValue,
+        completed: false,
+        index: newData.length,
+      };
 
-const addToDo = (e) => {
-  const newData = JSON.parse(localStorage.getItem('data') || '[]');
-  e.preventDefault();
-  const InputValue = document.querySelector('#input-list').value;
-
-  const dataObj = {
-    description: InputValue,
-    completed: false,
-    index: newData.length,
-  };
-
-  newData.push(dataObj);
-  localStorage.setItem('data', JSON.stringify(newData));
-  renderToDo();
-  form.reset();
-};
-
-export default addToDo;
+      const userINterface = new UI(dataObj);
+      userINterface.add();
+  
+      form.reset();
+    });
+}

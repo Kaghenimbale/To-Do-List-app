@@ -63,6 +63,7 @@ body {
   width: 60vw;
   color: black;
   border: none;
+  font-style: italic;
 }
 
 h2 {
@@ -120,10 +121,37 @@ span {
   border: none;
 }
 
+.hidden {
+  display: none; 
+}
+
 .btn-dot:hover {
   cursor: all-scroll;
 }
 
 .description {
   display: flex;
+}
+
+.InputUpdate {
+  font-size: 1.2rem;
+  border: none;
+  background: transparent;
+  padding: 1rem;
+  width: 70vw;
+  outline: none;
+}
+
+.newForm {
+  display: none;
+  align-items: center;
+  width: 70vw;
+}
+
+.Item:hover {
+  background: rgba(255, 247, 0, 0.509);
+}
+
+.btn-color {
+  background: rgba(255, 247, 0, 0.509);
 }

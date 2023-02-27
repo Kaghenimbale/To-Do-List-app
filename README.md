@@ -98,9 +98,6 @@ Start the development server
 
 To run the project, execute the following command:
 
-  - npm install
-  - to install all the dependencies used in the project
-
   - npm run build
   - to build this project from the source folder using webpack
 

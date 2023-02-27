@@ -9,66 +9,6 @@ class Task {
     this.newData = newData;
   }
 
-  update() {
-    const btnitems = document.querySelectorAll('#dot');
-    const Input = document.createElement('input');
-    const checkboxes = document.querySelectorAll('#checkbox');
-    Input.className = 'InputUpdate';
-
-    checkboxes.forEach((checkboxe) => {
-      checkboxe.addEventListener('click', (e) => {
-        e.target.innerText = 'done';
-        e.target.style.color = 'blue';
-        newData.forEach((item) => {
-          if (item.index === +e.target.dataset.id) {
-            item.completed = true;
-
-            localStorage.setItem('data', JSON.stringify(newData));
-          }
-        });
-        e.target.nextElementSibling.style.textDecoration = '2px black line-through';
-      });
-    });
-
-    btnitems.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        const btntdot = e.target.parentElement;
-        const deletebtn = btntdot.nextElementSibling;
-        const formTarget = btntdot.previousElementSibling.children[2];
-        const h2 = formTarget.previousElementSibling;
-
-        btntdot.classList.add('hidden');
-        deletebtn.classList.remove('hidden');
-        deletebtn.style.color = 'red';
-        formTarget.style.display = 'flex';
-        h2.classList.add('hidden');
-
-        formTarget.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const input = e.target.querySelector('input');
-          const { value } = input;
-          const itemIndex = input.dataset.parentindex;
-
-          const newget = [...newData];
-          formTarget.style.display = 'none';
-          btntdot.classList.remove('hidden');
-          deletebtn.classList.add('hidden');
-          h2.classList.remove('hidden');
-
-          newget.filter((data) => {
-            if (data.index === +itemIndex) {
-              const item = newget[itemIndex];
-              item.description = value;
-              localStorage.setItem('data', JSON.stringify(newget));
-              this.read();
-            }
-            return newget;
-          });
-        });
-      });
-    });
-  }
-
   read() {
     listItems.innerHTML = '';
     newData.forEach((item) => {

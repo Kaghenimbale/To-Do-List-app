@@ -15,18 +15,17 @@ class Task {
 
     btns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
-        const newdata = [...newData];
         const { id } = e.target.parentElement.dataset;
-        const indexItem = newdata.findIndex((item) => item.index === +id);
+        const indexItem = newData.findIndex((item) => item.index === +id);
 
         if (indexItem > -1) {
-          newdata.splice(indexItem, 1);
+          newData.splice(indexItem, 1);
 
-          newdata.forEach((item, indexItem) => {
+          newData.forEach((item, indexItem) => {
             item.index = indexItem;
           });
 
-          localStorage.setItem('data', JSON.stringify(newdata));
+          localStorage.setItem('data', JSON.stringify(newData));
           this.read();
         }
       });

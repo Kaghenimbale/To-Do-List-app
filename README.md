@@ -169,7 +169,7 @@ Thank you Microverse and my friend who always explain me for preparing this proj
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Kaghenimbale/To-Do-List-app/blob/master/Licence)) licensed.
+This project is [MIT](https://github.com/Kaghenimbale/To-Do-List-app/blob/add-license-1/Licence)) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

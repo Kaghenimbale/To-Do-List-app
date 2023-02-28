@@ -89,10 +89,6 @@ class Task {
         formTarget.style.display = 'flex';
         h2.classList.add('hidden');
 
-        window.addEventListener('click', () => {
-          console.log('clicked');
-        });
-
         formTarget.addEventListener('submit', (e) => {
           e.preventDefault();
           const input = e.target.querySelector('input');

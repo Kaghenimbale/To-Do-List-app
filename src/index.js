@@ -49,6 +49,19 @@ class Task {
     const checkboxes = document.querySelectorAll('#checkbox');
     Input.className = 'InputUpdate';
 
+    checkboxes.forEach((checkboxe) => {
+      checkboxe.addEventListener('change', (e) => {
+        newData.forEach((item) => {
+          if (item.index === +e.target.dataset.id) {
+            item.completed = true;
+
+            localStorage.setItem('data', JSON.stringify(newData));
+          }
+        });
+        e.target.nextElementSibling.style.textDecoration = '2px black line-through';
+      });
+    });
+
     btnitems.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         const btntdot = e.target.parentElement;

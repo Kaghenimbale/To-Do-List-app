@@ -53,7 +53,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-This website has not been deployed. Coming soon...
+[Live Demo](https://aesthetic-sunburst-db7cb6.netlify.app))
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -113,7 +113,7 @@ To run tests, run the following command:
 
 ### Deployment
 
-This project has not been deployed
+[Live Demo](https://aesthetic-sunburst-db7cb6.netlify.app))
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -1,8 +1,10 @@
 import './index.css';
+import reloadDom from './module/clear.js';
 
 const form = document.getElementById('form');
 const listItems = document.getElementById('list-items');
 const newData = JSON.parse(localStorage.getItem('data') || '[]');
+const clearSelected = document.querySelector('.clear');
 
 class Task {
   constructor(newData) {
@@ -11,7 +13,6 @@ class Task {
 
   delete() {
     const btns = document.querySelectorAll('#delete');
-    const clearSelected = document.querySelector('.clear');
 
     btns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -30,13 +31,14 @@ class Task {
         }
       });
     });
-    clearSelected.addEventListener('click', () => {
-      const newdata = this.newData.filter((data) => !data.completed);
+  }
 
-      newData.forEach((item, indexItem) => {
-        item.index = indexItem;
-      });
+  Clear() {
+    clearSelected.addEventListener('click', () => {
+      const newdata = newData.filter((data) => !data.completed);
+
       localStorage.setItem('data', JSON.stringify(newdata));
+      window.location.reload();
       this.read();
     });
   }
@@ -46,21 +48,6 @@ class Task {
     const Input = document.createElement('input');
     const checkboxes = document.querySelectorAll('#checkbox');
     Input.className = 'InputUpdate';
-
-    checkboxes.forEach((checkboxe) => {
-      checkboxe.addEventListener('click', (e) => {
-        e.target.innerText = 'done';
-        e.target.style.color = 'blue';
-        newData.forEach((item) => {
-          if (item.index === +e.target.dataset.id) {
-            item.completed = true;
-
-            localStorage.setItem('data', JSON.stringify(newData));
-          }
-        });
-        e.target.nextElementSibling.style.textDecoration = '2px black line-through';
-      });
-    });
 
     btnitems.forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -109,7 +96,7 @@ class Task {
 
       const listItem = `
     <div class="description">
-    <span id='checkbox' data-id=${item.index} class="material-symbols-outlined">check_box_outline_blank</span>
+    <input type="checkbox" name="checkbox" id="checkbox" data-id=${item.index}>
     <h2 id='underlined'>${item.description}</h2>
     <form class="newForm">
     <input class='InputUpdate' type="input" name="description" data-parentIndex="${item.index}" value="${item.description}"/>
@@ -123,8 +110,10 @@ class Task {
 
       listItems.appendChild(li);
     });
+
     this.update();
     this.delete();
+    this.Clear();
   }
 
   create(dataObj) {
@@ -136,6 +125,7 @@ class Task {
 
 const renderDomContentDb = () => {
   const task = new Task(newData);
+  reloadDom();
 
   task.read();
   form.addEventListener('submit', (e) => {

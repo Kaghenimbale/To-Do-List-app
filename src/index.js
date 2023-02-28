@@ -40,6 +40,20 @@ class Task {
     return newData;
   }
 
+  Clear() {
+    clearSelected.addEventListener('click', () => {
+      const newdata = this.getStoredData().filter((data) => !data.completed);
+
+      newdata.forEach((item, index) => {
+        item.index = index;
+      });
+
+      localStorage.setItem('data', JSON.stringify(newdata));
+      // window.location.reload();
+      this.read();
+    });
+  }
+
   update() {
     const btnitems = document.querySelectorAll('#dot');
     const Input = document.createElement('input');

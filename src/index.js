@@ -40,41 +40,12 @@ class Task {
     return newData;
   }
 
-  Clear() {
-    clearSelected.addEventListener('click', () => {
-      const newdata = this.getStoredData().filter((data) => !data.completed);
-
-      newdata.forEach((item, index) => {
-        item.index = index;
-      });
-
-      localStorage.setItem('data', JSON.stringify(newdata));
-      // window.location.reload();
-      this.read();
-    });
-  }
-
   update() {
     const btnitems = document.querySelectorAll('#dot');
     const Input = document.createElement('input');
     const checkboxes = document.querySelectorAll('#checkbox');
     Input.className = 'InputUpdate';
     const newdata = this.getStoredData();
-
-    checkboxes.forEach((checkboxe) => {
-      checkboxe.addEventListener('change', (e) => {
-        this.getStoredData().forEach((item) => {
-          if (item.index === +e.target.dataset.id) {
-            item.completed = true;
-            const index = newdata.findIndex((item) => item.index === +e.target.dataset.id);
-            newdata[index].completed = true;
-
-            localStorage.setItem('data', JSON.stringify(newdata));
-          }
-        });
-        e.target.nextElementSibling.style.textDecoration = '2px black line-through';
-      });
-    });
 
     btnitems.forEach((btn) => {
       btn.addEventListener('click', (e) => {

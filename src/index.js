@@ -3,7 +3,6 @@ import reloadDom from './module/clear.js';
 
 const form = document.getElementById('form');
 const listItems = document.getElementById('list-items');
-const newData = JSON.parse(localStorage.getItem('data') || '[]');
 const clearSelected = document.querySelector('.clear');
 
 class Task {
@@ -15,6 +14,8 @@ class Task {
     const btns = document.querySelectorAll('#delete');
 
     btns.forEach((btn) => {
+      const newData = this.getStoredData();
+
       btn.addEventListener('click', (e) => {
         const { id } = e.target.parentElement.dataset;
         const indexItem = newData.findIndex((item) => item.index === +id);
@@ -33,12 +34,22 @@ class Task {
     });
   }
 
+  getStoredData() {
+    const newData = JSON.parse(localStorage.getItem('data') || '[]');
+    this.newData = newData;
+    return newData;
+  }
+
   Clear() {
     clearSelected.addEventListener('click', () => {
-      const newdata = newData.filter((data) => !data.completed);
+      const newdata = this.getStoredData().filter((data) => !data.completed);
+
+      newdata.forEach((item, index) => {
+        item.index = index;
+      });
 
       localStorage.setItem('data', JSON.stringify(newdata));
-      window.location.reload();
+      // window.location.reload();
       this.read();
     });
   }
@@ -48,14 +59,17 @@ class Task {
     const Input = document.createElement('input');
     const checkboxes = document.querySelectorAll('#checkbox');
     Input.className = 'InputUpdate';
+    const newdata = this.getStoredData();
 
     checkboxes.forEach((checkboxe) => {
       checkboxe.addEventListener('change', (e) => {
-        newData.forEach((item) => {
+        this.getStoredData().forEach((item) => {
           if (item.index === +e.target.dataset.id) {
             item.completed = true;
+            const index = newdata.findIndex((item) => item.index === +e.target.dataset.id);
+            newdata[index].completed = true;
 
-            localStorage.setItem('data', JSON.stringify(newData));
+            localStorage.setItem('data', JSON.stringify(newdata));
           }
         });
         e.target.nextElementSibling.style.textDecoration = '2px black line-through';
@@ -75,13 +89,17 @@ class Task {
         formTarget.style.display = 'flex';
         h2.classList.add('hidden');
 
+        window.addEventListener('click', () => {
+          console.log('clicked');
+        });
+
         formTarget.addEventListener('submit', (e) => {
           e.preventDefault();
           const input = e.target.querySelector('input');
           const { value } = input;
           const itemIndex = input.dataset.parentindex;
 
-          const newget = [...newData];
+          const newget = [...this.getStoredData()];
           formTarget.style.display = 'none';
           btntdot.classList.remove('hidden');
           deletebtn.classList.add('hidden');
@@ -102,6 +120,8 @@ class Task {
   }
 
   read() {
+    const newData = this.getStoredData();
+
     listItems.innerHTML = '';
     newData.forEach((item) => {
       const li = document.createElement('li');
@@ -123,13 +143,13 @@ class Task {
 
       listItems.appendChild(li);
     });
-
     this.update();
     this.delete();
     this.Clear();
   }
 
   create(dataObj) {
+    dataObj.index = this.newData.length;
     this.newData.push(dataObj);
     localStorage.setItem('data', JSON.stringify(this.newData));
     this.read();
@@ -137,9 +157,9 @@ class Task {
 }
 
 const renderDomContentDb = () => {
+  const newData = JSON.parse(localStorage.getItem('data') || '[]');
   const task = new Task(newData);
   reloadDom();
-
   task.read();
   form.addEventListener('submit', (e) => {
     e.preventDefault();

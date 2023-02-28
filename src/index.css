@@ -152,3 +152,29 @@ span {
 .btn-color {
   background: rgba(255, 247, 0, 0.509);
 }
+
+.icon-reload {
+  animation-name: rotation;
+  animation-direction: normal;
+  animation-duration: 0.5s;
+}
+
+#checkbox {
+  height: 1.2rem;
+  width: 1.2rem;
+  margin: auto 1.5rem;
+}
+
+@keyframes rotation {
+  0% {
+    rotate: 180deg;
+  }
+
+  50% {
+    rotate: 0deg;
+  }
+
+  100% {
+    rotate: 180deg;
+  }
+}

@@ -1,8 +1,9 @@
 import './index.css';
+import reloadDom from './module/clear.js';
 
 const form = document.getElementById('form');
 const listItems = document.getElementById('list-items');
-const newData = JSON.parse(localStorage.getItem('data') || '[]');
+const clearSelected = document.querySelector('.clear');
 
 class Task {
   constructor(newData) {
@@ -11,9 +12,10 @@ class Task {
 
   delete() {
     const btns = document.querySelectorAll('#delete');
-    const clearSelected = document.querySelector('.clear');
 
     btns.forEach((btn) => {
+      const newData = this.getStoredData();
+
       btn.addEventListener('click', (e) => {
         const { id } = e.target.parentElement.dataset;
         const indexItem = newData.findIndex((item) => item.index === +id);
@@ -30,13 +32,24 @@ class Task {
         }
       });
     });
-    clearSelected.addEventListener('click', () => {
-      const newdata = this.newData.filter((data) => !data.completed);
+  }
 
-      newData.forEach((item, indexItem) => {
-        item.index = indexItem;
+  getStoredData() {
+    const newData = JSON.parse(localStorage.getItem('data') || '[]');
+    this.newData = newData;
+    return newData;
+  }
+
+  Clear() {
+    clearSelected.addEventListener('click', () => {
+      const newdata = this.getStoredData().filter((data) => !data.completed);
+
+      newdata.forEach((item, index) => {
+        item.index = index;
       });
+
       localStorage.setItem('data', JSON.stringify(newdata));
+      // window.location.reload();
       this.read();
     });
   }
@@ -46,16 +59,17 @@ class Task {
     const Input = document.createElement('input');
     const checkboxes = document.querySelectorAll('#checkbox');
     Input.className = 'InputUpdate';
+    const newdata = this.getStoredData();
 
     checkboxes.forEach((checkboxe) => {
-      checkboxe.addEventListener('click', (e) => {
-        e.target.innerText = 'done';
-        e.target.style.color = 'blue';
-        newData.forEach((item) => {
+      checkboxe.addEventListener('change', (e) => {
+        this.getStoredData().forEach((item) => {
           if (item.index === +e.target.dataset.id) {
             item.completed = true;
+            const index = newdata.findIndex((item) => item.index === +e.target.dataset.id);
+            newdata[index].completed = true;
 
-            localStorage.setItem('data', JSON.stringify(newData));
+            localStorage.setItem('data', JSON.stringify(newdata));
           }
         });
         e.target.nextElementSibling.style.textDecoration = '2px black line-through';
@@ -81,7 +95,7 @@ class Task {
           const { value } = input;
           const itemIndex = input.dataset.parentindex;
 
-          const newget = [...newData];
+          const newget = [...this.getStoredData()];
           formTarget.style.display = 'none';
           btntdot.classList.remove('hidden');
           deletebtn.classList.add('hidden');
@@ -102,6 +116,8 @@ class Task {
   }
 
   read() {
+    const newData = this.getStoredData();
+
     listItems.innerHTML = '';
     newData.forEach((item) => {
       const li = document.createElement('li');
@@ -109,7 +125,7 @@ class Task {
 
       const listItem = `
     <div class="description">
-    <span id='checkbox' data-id=${item.index} class="material-symbols-outlined">check_box_outline_blank</span>
+    <input type="checkbox" name="checkbox" id="checkbox" data-id=${item.index}>
     <h2 id='underlined'>${item.description}</h2>
     <form class="newForm">
     <input class='InputUpdate' type="input" name="description" data-parentIndex="${item.index}" value="${item.description}"/>
@@ -125,9 +141,11 @@ class Task {
     });
     this.update();
     this.delete();
+    this.Clear();
   }
 
   create(dataObj) {
+    dataObj.index = this.newData.length;
     this.newData.push(dataObj);
     localStorage.setItem('data', JSON.stringify(this.newData));
     this.read();
@@ -135,8 +153,9 @@ class Task {
 }
 
 const renderDomContentDb = () => {
+  const newData = JSON.parse(localStorage.getItem('data') || '[]');
   const task = new Task(newData);
-
+  reloadDom();
   task.read();
   form.addEventListener('submit', (e) => {
     e.preventDefault();

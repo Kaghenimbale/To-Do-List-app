@@ -47,6 +47,21 @@ class Task {
     Input.className = 'InputUpdate';
     const newdata = this.getStoredData();
 
+    checkboxes.forEach((checkboxe) => {
+      checkboxe.addEventListener('change', (e) => {
+        this.getStoredData().forEach((item) => {
+          if (item.index === +e.target.dataset.id) {
+            item.completed = true;
+            const index = newdata.findIndex((item) => item.index === +e.target.dataset.id);
+            newdata[index].completed = true;
+
+            localStorage.setItem('data', JSON.stringify(newdata));
+          }
+        });
+        e.target.nextElementSibling.style.textDecoration = '2px black line-through';
+      });
+    });
+
     btnitems.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         const btntdot = e.target.parentElement;
